@@ -44,15 +44,10 @@ async def surprise(ctx):
 async def helpme(ctx):
     await ctx.send(f" ### NotaAnilistBot \n *Search* : Search Anime | !nota search <anime_name> \n *ping*: Bot connection check \n *surprise*: Today your locky day!")
 
-"""@bot.command()
-async def favorites_add(ctx, anime: str):
-    save_data(f"https://anilist.co/anime/{anilist_req.get_info_anime(anime)}")
-    await ctx.send(f"{anime} Added to Favorites")
 
 @bot.command()
-async def favorites(ctx):
-    await ctx.send(f"*Favorites* \n{load_data()}")
-"""
+async def user(ctx, user: str):
+    await ctx.send(f"{anilist_req.get_info_user(user)}")
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
