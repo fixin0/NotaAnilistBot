@@ -42,7 +42,7 @@ async def surprise(ctx):
 
 @bot.command()
 async def helpme(ctx):
-    await ctx.send(f" ### NotaAnilistBot \n *Search* : Search Anime | !nota search <anime_name> \n *ping*: Bot connection check \n *surprise*: Today your locky day!")
+    await ctx.send(f" ### NotaAnilistBot \n *Search* : Search Anime | !nota search <anime_name> \n *ping*: Bot connection check \n *surprise*: Today your locky day! \n *user : Search user | !nota user <username>*")
 
 
 @bot.command()
