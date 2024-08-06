@@ -6,9 +6,6 @@ Open-Source discord bot for Anilist GraphQL API
 
 
 
-![Logo](./assets/bot_logo.png)
-
-
 ## Usage/Examples
 
 ```
