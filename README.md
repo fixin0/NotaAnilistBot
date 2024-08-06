@@ -1,5 +1,7 @@
 # Nota Anilist API Discord Bot
 
+<img src="./assets/bot_logo.png" alt="Logo" style="border-radius: 50%; width: 150px; height: 150px;">
+
 Open-Source discord bot for Anilist GraphQL API
 
 ## Commands
