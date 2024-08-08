@@ -1,10 +1,10 @@
 import requests
 import json
-def get_info_anime(_animeName):
+def get_info_anime(_animeName, searchtype):
     url = f"https://graphql.anilist.co"
     query = """
     query ($name: String){
-          Media (search: $name, type: ANIME) {
+          Media (search: $name, type: &type) {
                 id
                 title {
                     english
@@ -19,11 +19,16 @@ def get_info_anime(_animeName):
 
 """
     var = {"name": _animeName}
+    _type = searchtype
+    type = {"type": _type }
 
     response = requests.post(url, json= {"query": query, "variables": var })
     data = response.json()
     
-    return data["data"]["Media"]["id"]
+    if response.status_code == 404:
+        return False
+    else:
+        return data["data"]["Media"]["id"]
 
 def get_info_user(_username):
      url = f"https://graphql.anilist.co"

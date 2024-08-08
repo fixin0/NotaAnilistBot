@@ -33,8 +33,11 @@ async def ping(ctx):
     await ctx.send(f'ping: `{bot.latency * 1000}`ms')
 
 @bot.command()
-async def search(ctx, anime: str):
-    await ctx.send(f"Results:  https://anilist.co/anime/{anilist_req.get_info_anime(anime)}")
+async def anime(ctx, anime: str):
+    if anilist_req.get_info_anime == False:
+        await ctx.send(f"Results: Not Found! \n {anilist_req.get_info_anime(anime, "ANIME")}")
+    else:
+        await ctx.send(f"' Maybe this is what you are looking for: https://www.anilist.co/anime/{anilist_req.get_info_anime(anime, "ANIME")}")
 
 @bot.command()
 async def surprise(ctx):
@@ -42,12 +45,21 @@ async def surprise(ctx):
 
 @bot.command()
 async def helpme(ctx):
-    await ctx.send(f" ### NotaAnilistBot \n *Search* : Search Anime | !nota search <anime_name> \n *ping*: Bot connection check \n *surprise*: Today your locky day! \n *user : Search user | !nota user <username>*")
+    await ctx.send(f" ### NotaAnilistBot \n *anime* : Search Anime | !nota search <anime_name> \n *ping*: Bot connection check \n *surprise*: Today your locky day! \n *user : Search user | !nota user <username>*")
 
 
 @bot.command()
 async def user(ctx, user: str):
     await ctx.send(f"{anilist_req.get_info_user(user)}")
+
+@bot.commnad()
+async def manga(ctx, manga: str):
+    if anilist_req.get_info_anime == False:
+            await ctx.send(f"Results: Not Found! \n {anilist_req.get_info_anime(anime, "MANGA")}")
+    else:
+        await ctx.send(f"Results: Not Found! \n {anilist_req.get_info_anime(anime, "MANGA")}")
+
+
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
