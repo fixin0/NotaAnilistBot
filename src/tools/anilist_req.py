@@ -1,10 +1,10 @@
 import requests
 import json
-def get_info_anime(_animeName, searchtype):
+def get_info_anime(_animeName):
     url = f"https://graphql.anilist.co"
     query = """
     query ($name: String){
-          Media (search: $name, type: &type) {
+          Media (search: $name, type: ANIME) {
                 id
                 title {
                     english
@@ -19,8 +19,6 @@ def get_info_anime(_animeName, searchtype):
 
 """
     var = {"name": _animeName}
-    _type = searchtype
-    type = {"type": _type }
 
     response = requests.post(url, json= {"query": query, "variables": var })
     data = response.json()
@@ -48,5 +46,4 @@ def get_info_user(_username):
         return data['data']['User']['siteUrl']
      else:
          return f' Maybe this is what you are looking for: https://www.anilist.co/user/{_username}'
-
 

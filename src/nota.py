@@ -35,9 +35,9 @@ async def ping(ctx):
 @bot.command()
 async def anime(ctx, anime: str):
     if anilist_req.get_info_anime == False:
-        await ctx.send(f"Results: Not Found! \n {anilist_req.get_info_anime(anime, "ANIME")}")
+        await ctx.send(f"Results: Not Found! \n {anilist_req.get_info_anime(anime)}")
     else:
-        await ctx.send(f"' Maybe this is what you are looking for: https://www.anilist.co/anime/{anilist_req.get_info_anime(anime, "ANIME")}")
+        await ctx.send(f"Maybe this is what you are looking for: https://www.anilist.co/anime/{anilist_req.get_info_anime(anime)}")
 
 @bot.command()
 async def surprise(ctx):
@@ -51,13 +51,6 @@ async def helpme(ctx):
 @bot.command()
 async def user(ctx, user: str):
     await ctx.send(f"{anilist_req.get_info_user(user)}")
-
-@bot.commnad()
-async def manga(ctx, manga: str):
-    if anilist_req.get_info_anime == False:
-            await ctx.send(f"Results: Not Found! \n {anilist_req.get_info_anime(anime, "MANGA")}")
-    else:
-        await ctx.send(f"Results: Not Found! \n {anilist_req.get_info_anime(anime, "MANGA")}")
 
 
 
